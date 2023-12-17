@@ -8,15 +8,19 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div class="screen">
+        <div class="screen light">
+            <div class="theme-selector no-new-word">
+                <label class="no-new-word">🌞<input class="no-new-word" type="radio" id="light" name="theme" hidden /></label>
+                <label class="no-new-word">🌙<input class="no-new-word" type="radio" id="dark" name="theme" hidden /></label>
+            </div>
             <div class="settings">
-                <label class="settings" for="unsafe">Incluir diccionario secundario</label>
-                <input class="settings" type="checkbox" id="unsafe">
-                <label class="settings" for="timer">Timer</label>
-                <input class="settings" type="checkbox" id="timer">
-                <input class="settings hidden" type="number" id="seconds" value="10">
-                <button class="settings add hidden">+</button>
-                <button class="settings subtract hidden">-</button>
+                <label class="no-new-word" for="unsafe">Incluir diccionario secundario</label>
+                <input class="no-new-word" type="checkbox" id="unsafe">
+                <label class="no-new-word" for="timer">Timer</label>
+                <input class="no-new-word" type="checkbox" id="timer">
+                <input class="no-new-word hidden" type="number" id="seconds" value="10">
+                <button class="no-new-word add hidden">+</button>
+                <button class="no-new-word subtract hidden">-</button>
             </div>
             <h1 id="word"></h1>
         </div>

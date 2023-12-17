@@ -1,15 +1,28 @@
 import diccionario from './diccionario.json' assert { type: 'json' };
 
-const buttons = document.querySelectorAll('button.settings');
+const buttons = document.querySelectorAll('.settings > button');
 const timerInput = document.querySelector('input#timer');
+const screen = document.querySelector('.screen');
 const secondsInput = document.querySelector('input#seconds');
+const themeSelectors = document.querySelectorAll(
+    '.theme-selector > label > input'
+);
+const preventNewWordClass = 'no-new-word';
 let timerInterval;
 
 document.body.addEventListener('click', e => {
     if (timerInterval) return;
     getWord(e);
 });
-document.addEventListener('DOMContentLoaded', getWord);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const theme = localStorage.getItem('theme');
+    if (theme) {
+        screen.classList.add(theme);
+        screen.classList.remove(theme === 'light' ? 'dark' : 'light');
+    }
+    getWord();
+});
 
 timerInput.addEventListener('change', e => {
     if (timerInterval) {
@@ -35,8 +48,17 @@ buttons.forEach(button =>
     })
 );
 
+themeSelectors.forEach(button =>
+    button.addEventListener('click', e => {
+        const theme = e.target.id;
+        screen.classList.add(theme);
+        screen.classList.remove(theme === 'light' ? 'dark' : 'light');
+        localStorage.setItem('theme', theme);
+    })
+);
+
 function getWord(e) {
-    if (e?.target.classList?.contains('settings')) return; // clicked on settings
+    if (e?.target.classList?.contains(preventNewWordClass)) return; // clicked on settings
     if (e && timerInterval) return; // clicked when enabled timer mode
 
     let dictionary = diccionario.mejores;

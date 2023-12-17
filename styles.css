@@ -3,11 +3,19 @@
     src: url('./Inconsolata-ExtraLight.ttf');
 }
 
+:root {
+    --light-theme-background-color: #F4DBD8;
+    --light-theme-primary-font-color:  #BEA8A7;
+    --light-theme-secondary-font-color:  #736160;
+    --dark-theme-background-color: #2B2D42;
+    --dark-theme-primary-font-color: #8D99AE;
+    --dark-theme-secondary-font-color: #bdd0f1;
+}
+
 body, html {
     margin: 0;
     padding: 0;
     font-family: Inconsolata;
-    background-color: #F4DBD8;
     user-select: none;
 }
 
@@ -27,7 +35,6 @@ div.screen {
 h1#word {
     font-size: 6rem;
     text-transform: capitalize;
-    color: #BEA8A7;
     text-align: center;
 }
 
@@ -39,14 +46,60 @@ div.settings {
     padding: 2rem;
     font-size: 1.5rem;
     height: 4rem;
-    color: #736160;
     width: max-content;
     display: grid;
     grid-template-columns: 5fr 1fr;
     align-items: center;
 }
 
-button.settings {
+div.theme-selector {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+
+    button {
+        background: transparent;
+        border: none;
+    }
+}
+
+div.screen.light {
+    background-color: var(--light-theme-background-color);
+
+    h1#word {
+        color: var(--light-theme-primary-font-color);
+    }
+
+    div.settings {
+        color: var(--light-theme-secondary-font-color);
+    }
+
+    div.theme-selector {
+        label {
+            filter: brightness(0);
+        }
+    }
+}
+
+div.screen.dark {
+    background-color: var(--dark-theme-background-color);
+
+    h1#word {
+        color: var(--dark-theme-primary-font-color);
+    }
+
+    div.settings {
+        color: var(--dark-theme-secondary-font-color);
+    }
+
+    div.theme-selector {
+        label {
+            filter: brightness(100);
+        }
+    }
+}
+
+div.settings > button {
     background: transparent;
     position: absolute;
     color: inherit;
@@ -56,16 +109,15 @@ button.settings {
     width: 3rem;
     font-size: 2rem;
     font-family: inherit;
-    padding-bottom: 0.2rem;
     border: none;
     transition: opacity ease 300ms;
 }
 
-button.settings.add {
+div.settings > button.add {
     left: 10rem;
 }
 
-button.settings.subtract {
+div.settings > button.subtract {
     right: 10rem;
 }
 
@@ -119,19 +171,18 @@ input[type=number]::-webkit-outer-spin-button {
         row-gap: .25rem;
     }
 
-    button.settings {
+    div.settings > button {
         height: 2.5rem;
         width: 2.5rem;
         font-size: 2rem;
         bottom: .75rem;
-        padding-bottom: 0.2rem;
     }
 
-    button.settings.add {
+    div.settings > button.add {
         left: 8rem;
     }
 
-    button.settings.subtract {
+    div.settings > button.subtract {
         right: 8rem;
     }
 

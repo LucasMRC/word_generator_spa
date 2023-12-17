@@ -1,15 +1,21 @@
 import diccionario from './diccionario.json' assert { type: 'json' };
 
-document.body.addEventListener('click', getWord);
-document.addEventListener('DOMContentLoaded', getWord);
-
 const buttons = document.querySelectorAll('button.settings');
 const timerInput = document.querySelector('input#timer');
 const secondsInput = document.querySelector('input#seconds');
 let timerInterval;
 
+document.body.addEventListener('click', e => {
+    if (timerInterval) return;
+    getWord(e);
+});
+document.addEventListener('DOMContentLoaded', getWord);
+
 timerInput.addEventListener('change', e => {
-    if (timerInterval) clearInterval(timerInterval);
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
     if (e.target.checked) {
         timerInterval = setInterval(getWord, secondsInput.valueAsNumber * 1000);
     }
@@ -30,7 +36,8 @@ buttons.forEach(button =>
 );
 
 function getWord(e) {
-    if (e?.target.classList?.contains('settings')) return;
+    if (e?.target.classList?.contains('settings')) return; // clicked on settings
+    if (e && timerInterval) return; // clicked when enabled timer mode
 
     let dictionary = diccionario.mejores;
     if (document.querySelector('input#unsafe').checked) {

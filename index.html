@@ -5,117 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Randomero</title>
         <script type="module" src="script.js" defer></script>
-        <style>
-            @font-face {
-                font-family: 'Inconsolata';
-                src: url('./Inconsolata-ExtraLight.ttf');
-            }
-
-            body, html {
-                margin: 0;
-                padding: 0;
-                font-family: Inconsolata;
-                background-color: #F4DBD8;
-                user-select: none;
-            }
-
-            div.screen {
-                position: relative;
-                height: 100vh;
-                width: 100vw;
-                display: grid;
-                place-items: center;
-            }
-
-            h1 {
-                font-size: 6rem;
-                text-transform: capitalize;
-                color: #BEA8A7;
-            }
-
-            div.settings {
-                position: absolute;
-                top: 3rem;
-                left: 50%;
-                translate: -50% 0;
-                font-size: 1.5rem;
-                height: 4rem;
-                padding: 2rem;
-                width: max-content;
-                display: grid;
-                grid-template-columns: 5fr 1fr;
-                align-items: center;
-            }
-
-            button.settings {
-                background: transparent;
-                position: absolute;
-                border-radius: .3rem;
-                bottom: 0;
-                height: 3rem;
-                width: 3rem;
-                font-size:2rem;
-                font-family: inherit;
-                padding-bottom: 0.2rem;
-                border: 1px solid grey;
-                transition: opacity ease 300ms;
-            }
-
-            button.settings.add {
-                left: 10rem;
-            }
-
-            button.settings.subtract {
-                right: 10rem;
-            }
-
-            input[type=checkbox] {
-                /* Double-sized Checkboxes */
-                -ms-transform: scale(1.5); /* IE */
-                -moz-transform: scale(1.5); /* FF */
-                -webkit-transform: scale(1.5); /* Safari and Chrome */
-                -o-transform: scale(1.5); /* Opera */
-                transform: scale(1.5);
-            }
-
-            input[type=number] {
-                padding: 0.5rem;
-                transition: opacity ease 300ms;
-                grid-column: span 2;
-                pointer-events: none;
-                color: inherit;
-                outline: none;
-                border: none;
-                background: transparent;
-                font-size: inherit;
-                font-family: inherit;
-                scale: 2;
-                text-align: center;
-                /* Firefox */
-                -moz-appearance: textfield;
-                appearance: textfield;
-                margin: 0;
-            }
-
-            input[type=number]::-webkit-inner-spin-button,
-            input[type=number]::-webkit-outer-spin-button {
-                /* Webkit */
-                -webkit-appearance: none;
-                margin: 0;
-            }
-
-            .hidden {
-                opacity: 0;
-                pointer-events: none;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <div class="screen">
-            <div class="settings" title="El diccionario secundario contiene alrededor the 60k palabras,&#10;inchequeable qué te puede tocar">
-                <label class="settings" for="unsafe">Incluir diccionario secundario?</label>
+            <div class="settings">
+                <label class="settings" for="unsafe">Incluir diccionario secundario</label>
                 <input class="settings" type="checkbox" id="unsafe">
-                <label class="settings" for="timer">Timer?</label>
+                <label class="settings" for="timer">Timer</label>
                 <input class="settings" type="checkbox" id="timer">
                 <input class="settings hidden" type="number" id="seconds" value="10">
                 <button class="settings add hidden">+</button>

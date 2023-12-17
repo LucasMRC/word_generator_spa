@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('./Inconsolata-ExtraLight.ttf');
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Inconsolata;
+    background-color: #F4DBD8;
+    user-select: none;
+}
+
+button, input {
+    outline: none;
+}
+
+div.screen {
+    container-type: inline-size;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+h1#word {
+    font-size: 6rem;
+    text-transform: capitalize;
+    color: #BEA8A7;
+    text-align: center;
+}
+
+div.settings {
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    translate: -50% 0;
+    padding: 2rem;
+    font-size: 1.5rem;
+    height: 4rem;
+    color: #736160;
+    width: max-content;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    align-items: center;
+}
+
+button.settings {
+    background: transparent;
+    position: absolute;
+    color: inherit;
+    border-radius: .3rem;
+    bottom: 0;
+    height: 3rem;
+    width: 3rem;
+    font-size: 2rem;
+    font-family: inherit;
+    padding-bottom: 0.2rem;
+    border: none;
+    transition: opacity ease 300ms;
+}
+
+button.settings.add {
+    left: 10rem;
+}
+
+button.settings.subtract {
+    right: 10rem;
+}
+
+input[type=checkbox] {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
+    transform: scale(1.5);
+}
+
+input[type=number] {
+    padding: 0.5rem;
+    transition: opacity ease 300ms;
+    grid-column: span 2;
+    pointer-events: none;
+    color: inherit;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: inherit;
+    font-family: inherit;
+    scale: 2;
+    text-align: center;
+    /* Firefox */
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    /* Webkit */
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@container (width < 640px) {
+    h1#word {
+        font-size: 2.5rem;
+    }
+
+    div.settings {
+        font-size: 1.1rem;
+        row-gap: .25rem;
+    }
+
+    button.settings {
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 2rem;
+        bottom: .75rem;
+        padding-bottom: 0.2rem;
+    }
+
+    button.settings.add {
+        left: 8rem;
+    }
+
+    button.settings.subtract {
+        right: 8rem;
+    }
+
+    input[type=number] {
+        scale: 1.7;
+    }
+}

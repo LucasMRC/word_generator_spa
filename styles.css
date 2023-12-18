@@ -65,38 +65,34 @@ div.theme-selector {
 
 div.screen.light {
     background-color: var(--light-theme-background-color);
+}
 
-    h1#word {
-        color: var(--light-theme-primary-font-color);
-    }
+div.screen.light h1#word {
+    color: var(--light-theme-primary-font-color);
+}
 
-    div.settings {
-        color: var(--light-theme-secondary-font-color);
-    }
+div.screen.light div.settings {
+    color: var(--light-theme-secondary-font-color);
+}
 
-    div.theme-selector {
-        label {
-            filter: brightness(0);
-        }
-    }
+div.screen.light div.theme-selector label {
+    filter: brightness(0);
 }
 
 div.screen.dark {
     background-color: var(--dark-theme-background-color);
+}
 
-    h1#word {
-        color: var(--dark-theme-primary-font-color);
-    }
+div.screen.dark h1#word {
+    color: var(--dark-theme-primary-font-color);
+}
 
-    div.settings {
-        color: var(--dark-theme-secondary-font-color);
-    }
+div.screen.dark div.settings {
+    color: var(--dark-theme-secondary-font-color);
+}
 
-    div.theme-selector {
-        label {
-            filter: brightness(100);
-        }
-    }
+div.screen.dark div.theme-selector label {
+    filter: brightness(100);
 }
 
 div.settings > button {
@@ -128,6 +124,7 @@ input[type=checkbox] {
     -webkit-transform: scale(1.5); /* Safari and Chrome */
     -o-transform: scale(1.5); /* Opera */
     transform: scale(1.5);
+    justify-self: center;
 }
 
 input[type=number] {

@@ -1,4 +1,4 @@
-import diccionario from './diccionario.json' assert { type: 'json' };
+import { diccionario } from './diccionario.js';
 
 const buttons = document.querySelectorAll('.settings > button');
 const timerInput = document.querySelector('input#timer');
